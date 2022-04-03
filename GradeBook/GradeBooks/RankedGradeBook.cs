@@ -7,7 +7,7 @@ namespace GradeBook.GradeBooks
 {
     public class RankedGradeBook : BaseGradeBook
     {
-        public RankedGradeBook(string name) : base(name)
+        public RankedGradeBook(string name, bool isWeighted) : base(name, isWeighted)
         {
             Type = Enums.GradeBookType.Ranked;
         }
@@ -22,7 +22,6 @@ namespace GradeBook.GradeBooks
                 if (Students[i].AverageGrade > averageGrade) betterStudentsCount++;
             }
             double rank = (double)(betterStudentsCount + 1) / Students.Count;
-            Console.WriteLine(rank);
             if (rank <= .2) return 'A';
             else if (rank <= .4) return 'B';
             else if (rank <= .6) return 'C';
